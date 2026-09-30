@@ -3,187 +3,323 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Últimas peças. Novos caminhos.</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap">
+<title>CONSTITA — Últimas peças. Novos caminhos.</title>
+<meta name="description" content="Últimas peças da coleção atual, com atendimento online pelo WhatsApp.">
+<meta property="og:title" content="CONSTITA — Últimas peças. Novos caminhos.">
+<link rel="icon" href="img/k.jpg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap">
 <style>
-:root{--bg:#f7f3ec;--bg2:#efe8dc;--ink:#211b16;--mute:#6f645a;--line:#ddd3c4;--brown:#6b4f3a;--green:#3f5a45;--card:#fffdf9;--btn:#211b16;--btnt:#f7f3ec;
---serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;--sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+:root{--bg:#faf8f4;--ink:#1c1814;--mute:#7a7066;--line:#e6dfd4;--card:#f3eee6;--dk:#1c1814;--dkt:#faf8f4;
+--serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',system-ui,-apple-system,sans-serif;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171310;--bg2:#1f1a16;--ink:#f1eadf;--mute:#a89b8c;--line:#3a322b;--brown:#c9a98a;--green:#8fb298;--card:#1c1712;--btn:#f1eadf;--btnt:#171310}}
-:root[data-theme="dark"]{--bg:#171310;--bg2:#1f1a16;--ink:#f1eadf;--mute:#a89b8c;--line:#3a322b;--brown:#c9a98a;--green:#8fb298;--card:#1c1712;--btn:#f1eadf;--btnt:#171310}
-html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161311;--ink:#f1ebe1;--mute:#a1968a;--line:#332d27;--card:#1e1a17;--dk:#f1ebe1;--dkt:#161311}}
+:root[data-theme="dark"]{--bg:#161311;--ink:#f1ebe1;--mute:#a1968a;--line:#332d27;--card:#1e1a17;--dk:#f1ebe1;--dkt:#161311}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
-h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;margin:0}
-a{color:inherit}
-.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
-section{padding:72px 0}
-.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);font-weight:600;margin:0 0 14px}
-h2{font-size:clamp(34px,7vw,52px)}
-.lead{color:var(--mute);max-width:560px;margin:14px 0 0}
-.btn{display:inline-block;padding:15px 26px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;text-decoration:none;border:1px solid var(--btn);background:var(--btn);color:var(--btnt);cursor:pointer;font-family:var(--sans);text-align:center}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.7 var(--sans)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;line-height:1.1}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+.eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute);margin:0 0 20px}
+h2{font-size:clamp(32px,6vw,48px)}
+.lead{color:var(--mute);max-width:480px;margin:18px 0 0}
+.btn{display:inline-block;padding:14px 30px;font:500 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--dk);background:var(--dk);color:var(--dkt);cursor:pointer;transition:opacity .2s;text-align:center}
+.btn:hover{opacity:.8}
 .btn.ghost{background:transparent;color:var(--ink)}
-.btn.sm{padding:11px 14px;font-size:11px;letter-spacing:.1em;flex:1}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+
+/* Cabeçalho fixo: logo grande no topo, encolhe ao rolar e nunca sai da tela */
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{font-family:var(--serif);font-size:24px;letter-spacing:.14em;text-decoration:none}
-nav{display:flex;gap:22px;align-items:center;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
-nav a{text-decoration:none;color:var(--mute)}
-@media(max-width:700px){nav a.l{display:none}}
-.hero{padding:48px 0 64px}
-.hero h1{font-size:clamp(46px,13vw,104px);letter-spacing:-.01em}
-.hero h1 em{color:var(--brown)}
-.hero p.t{max-width:520px;color:var(--mute);margin:22px 0 28px;font-size:17px}
-.cta{display:flex;gap:12px;flex-wrap:wrap}
-.note{margin-top:18px;font-size:13px;color:var(--mute);display:flex;gap:8px;align-items:center}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex:none}
-.hero-img{margin-top:44px;aspect-ratio:16/9;min-height:220px;background:linear-gradient(135deg,#d9c9b3,#b89d80 60%,#8a6f55);position:relative;display:flex;align-items:flex-end}
-.hero-img span{font-family:var(--serif);font-style:italic;font-size:22px;color:#fffdf9;padding:20px}
-.ph{aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.75);font-size:11px;letter-spacing:.18em;text-transform:uppercase;position:relative}
-.strip{background:var(--bg2)}
-.chips{display:flex;gap:8px;overflow-x:auto;padding:26px 0 6px;-webkit-overflow-scrolling:touch}
-.chip{flex:none;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--ink);font:500 12px var(--sans);letter-spacing:.08em;cursor:pointer;border-radius:99px}
-.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px}
-@media(min-width:800px){.grid{grid-template-columns:repeat(4,1fr);gap:22px}}
-.card{background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column}
-.badge{position:absolute;top:10px;left:10px;background:var(--bg);color:var(--ink);font-size:9px;letter-spacing:.14em;font-weight:600;padding:5px 8px}
-.info{padding:14px;display:flex;flex-direction:column;gap:6px;flex:1}
-.info h3{font-size:20px;line-height:1.15}
-.pr{font-size:14px}.pr s{color:var(--mute);margin-right:8px;font-size:13px}.pr b{font-weight:600}
-.sz{font-size:12px;color:var(--mute)}
-.acts{display:flex;flex-direction:column;gap:6px;margin-top:auto;padding-top:8px}
-.empty{color:var(--mute);padding:30px 0;grid-column:1/-1}
-.two{display:grid;gap:34px;align-items:center}
-@media(min-width:800px){.two{grid-template-columns:1fr 1fr}}
-.list{list-style:none;padding:0;margin:26px 0;display:grid;gap:12px;font-size:15px}
-.map{aspect-ratio:4/3;background:linear-gradient(135deg,#e4dccf,#cbbca6);display:flex;align-items:center;justify-content:center;color:var(--brown);font-family:var(--serif);font-size:26px;font-style:italic}
-.next{background:var(--ink);color:var(--bg)}
-.next .eyebrow{color:#a9c4af}
-.next h2{font-size:clamp(44px,11vw,96px)}
-.next .lead{color:#c9bfb2}
-.brands{display:grid;gap:18px;margin-top:44px}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:84px;transition:height .25s}
+.scrolled header .wrap{height:56px}
+.logo{display:inline-flex;align-items:center;gap:.45em;font:400 clamp(24px,7vw,34px)/1 var(--serif);letter-spacing:.2em;transition:font-size .25s}
+.logo img{width:1.2em;height:1.2em;border-radius:5px;object-fit:cover;flex:none}
+.scrolled header .logo{font-size:20px}
+.cartbtn{background:none;border:0;color:var(--ink);font:500 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;cursor:pointer;padding:8px 0}
+
+.hero{padding:80px 0 56px;text-align:center}
+.hero h1{font-size:clamp(44px,10vw,88px);font-weight:300;letter-spacing:-.01em}
+.hero h1 em{color:var(--mute)}
+.hero p.t{max-width:460px;margin:26px auto 36px;color:var(--mute)}
+.nota{margin:22px 0 0;font-size:13px;color:var(--mute)}
+
+/* Carrossel central */
+#destaques{padding:24px 0 40px}
+#destaques .cab{text-align:center;margin-bottom:28px}
+#destaques .cab .eyebrow{margin:0}
+.car{position:relative}
+.track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.track article{flex:0 0 min(230px,64vw);scroll-snap-align:start}
+.arrow{position:absolute;top:34%;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:22px;cursor:pointer;z-index:3;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.arrow.p{left:-8px}.arrow.n{right:-8px}
+@media(min-width:1140px){.arrow.p{left:-56px}.arrow.n{right:-56px}}
+
+.chips{display:flex;gap:26px;overflow-x:auto;margin-top:40px;padding-bottom:10px;border-bottom:1px solid var(--line);scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;background:none;border:0;border-bottom:1px solid transparent;padding:0 0 8px;color:var(--mute);font:500 11px var(--sans);letter-spacing:.18em;text-transform:uppercase;cursor:pointer}
+.chip.on{color:var(--ink);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 16px;margin-top:40px}
+@media(min-width:800px){.grid{grid-template-columns:repeat(4,1fr);gap:40px 24px}}
+.ph{aspect-ratio:3/4;position:relative;overflow:hidden}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:10px;left:10px;z-index:1;font-size:9px;letter-spacing:.16em;background:var(--bg);color:var(--ink);padding:4px 8px;text-transform:uppercase}
+.info{padding-top:14px;display:flex;flex-direction:column;gap:4px}
+.info h3{font-size:20px}
+.pr{font-size:14px}.pr s{color:var(--mute);margin-right:8px;font-size:13px}
+.szs{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;padding:2px}
+.tb{min-width:34px;padding:4px 8px;border:1px solid var(--line);background:transparent;color:var(--ink);font:400 12px var(--sans);cursor:pointer}
+.tb.on{background:var(--dk);color:var(--dkt);border-color:var(--dk)}
+.szs.need{outline:1px solid var(--ink);outline-offset:3px}
+.add{margin-top:10px;width:100%}
+.add.in{background:transparent;color:var(--ink)}
+.empty{color:var(--mute);grid-column:1/-1}
+
+.next{background:var(--card);text-align:center}
+.next .lead{margin-left:auto;margin-right:auto}
+.brands{display:grid;gap:48px;margin-top:64px}
 @media(min-width:800px){.brands{grid-template-columns:1fr 1fr}}
-.brand{border:1px solid #4a4038;padding:32px 26px}
-.brand h3{font-size:44px;letter-spacing:.06em}
-.brand .tag{font-size:11px;letter-spacing:.2em;color:#a9c4af;margin:8px 0 16px;font-weight:600}
-.brand p{color:#d6ccbf;margin:0 0 16px}
-.brand ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
-.brand li{font-size:12px;border:1px solid #5a4f45;padding:5px 12px;border-radius:99px;color:#e8dfd2}
-.soon{margin-top:34px;font-family:var(--serif);font-style:italic;font-size:24px;color:#e8dfd2}
-.tl{margin-top:40px;border-left:1px solid var(--line);padding-left:26px;display:grid;gap:34px}
-.st{position:relative}
-.st:before{content:"";position:absolute;left:-32px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--green)}
-.st.now:before{background:var(--green)}
-.st small{font-size:11px;letter-spacing:.2em;color:var(--green);font-weight:600}
-.st h3{font-size:30px;margin:4px 0 6px}
-.st p{margin:0;color:var(--mute);max-width:460px}
-form{display:grid;gap:12px;margin-top:26px;max-width:460px}
-input{padding:15px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:16px var(--sans);width:100%;border-radius:0}
-.ok{display:none;margin-top:16px;color:var(--green);font-weight:500}
-footer{border-top:1px solid var(--line);padding:38px 0 110px;text-align:center;color:var(--mute);font-size:13px}
-footer .logo{display:block;margin-bottom:8px;color:var(--ink)}
-footer em{font-family:var(--serif);font-size:20px;display:block;margin-bottom:14px}
-.wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;background:#25a15b;color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:14px 20px;border-radius:99px;box-shadow:0 6px 20px rgba(0,0,0,.22);display:flex;gap:8px;align-items:center}
+.brand h3{font-size:40px;letter-spacing:.14em;font-weight:300}
+.brand .tag{font-size:10px;letter-spacing:.24em;color:var(--mute);margin:10px 0 14px;text-transform:uppercase}
+.brand p{color:var(--mute);margin:0 auto;max-width:340px}
+.soon{margin-top:64px;font:italic 400 24px var(--serif);color:var(--mute)}
+.center{text-align:center}.center .lead{margin-left:auto;margin-right:auto}
+.center .btn{margin-top:32px}
+footer{border-top:1px solid var(--line);padding:40px 0 100px;text-align:center;color:var(--mute);font-size:13px}
+footer .logo{margin-bottom:12px;color:var(--ink);font-size:22px}
+.wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;background:var(--dk);color:var(--dkt);font:500 11px var(--sans);letter-spacing:.18em;text-transform:uppercase;padding:14px 22px;border-radius:99px}
+.erro{display:none;background:#8a2b2b;color:#fff;padding:12px 24px;font-size:14px}
+.erro.on{display:block}
+
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:40;display:none}
+.ov.open{display:block}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(400px,100%);background:var(--bg);z-index:50;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column;padding:calc(20px + env(safe-area-inset-top,0px)) 24px calc(20px + env(safe-area-inset-bottom,0px))}
+.drawer.open{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.dh h3{font-size:28px}
+.x{background:none;border:0;color:var(--ink);font-size:26px;cursor:pointer;line-height:1}
+.items{flex:1;overflow-y:auto;padding:8px 0}
+.it{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:center}
+.sw{width:52px;height:68px;flex:none;position:relative;overflow:hidden}
+.sw img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.it .d{flex:1}
+.it b{font:400 18px var(--serif);display:block;line-height:1.2}
+.it small{color:var(--mute);font-size:12px}
+.rm{background:none;border:0;color:var(--mute);font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;text-decoration:underline}
+.tot{display:flex;justify-content:space-between;padding:18px 0;font-size:16px}
+.drawer .btn{width:100%}
+.dempty{color:var(--mute);padding:30px 0}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.logo,header .wrap,.drawer{transition:none}}
 </style>
 </head>
 <body>
-<header><div class="wrap"><a class="logo" href="#topo">SUA LOJA</a>
-<nav><a class="l" href="#pecas">Últimas peças</a><a class="l" href="#loja">Atendimento</a><a class="l" href="#nova-fase">Nova fase</a><a href="#pecas" style="color:var(--ink);font-weight:600">Comprar</a></nav></div></header>
+<div class="erro" id="erro" role="alert"></div>
+<header><div class="wrap">
+  <a class="logo" href="#topo"><img src="img/k.jpg" alt="" width="34" height="34"><span id="logo">CONSTITA</span></a>
+  <button class="cartbtn" id="open" type="button">Carrinho (<span id="cnt">0</span>)</button>
+</div></header>
 
 <main id="topo">
 <section class="hero"><div class="wrap">
-<p class="eyebrow">O último capítulo da coleção atual</p>
-<h1>ÚLTIMAS PEÇAS.<br><em>NOVA FASE.</em></h1>
-<p class="t">Estamos encerrando uma coleção para abrir espaço para algo novo. Aproveite as últimas peças disponíveis enquanto preparamos o próximo capítulo da nossa história.</p>
-<div class="cta"><a class="btn" href="#pecas">Comprar online</a><a class="btn ghost" data-wa="Olá! Vim pelo site e gostaria de saber mais sobre as últimas peças disponíveis.">Falar no WhatsApp</a></div>
-<div class="note"><span class="dot"></span>Agora 100% online, com atendimento pelo WhatsApp.</div>
-<div class="hero-img"><span>Últimas peças. Novos caminhos.</span></div>
+  <p class="eyebrow" id="h-eyebrow"></p>
+  <h1><span id="h-chamada"></span><br><em id="h-destaque"></em></h1>
+  <p class="t" id="h-texto"></p>
+  <a class="btn" href="#pecas">Ver peças</a>
+  <p class="nota" id="aviso"></p>
 </div></section>
 
-<section id="pecas" class="strip"><div class="wrap">
-<p class="eyebrow">Quantidades limitadas</p>
-<h2>Últimas peças disponíveis</h2>
-<p class="lead">Uma seleção especial das peças que ainda estão disponíveis. Quantidades limitadas e sem reposição.</p>
-<div class="chips" id="chips"></div>
-<div class="grid" id="grid"></div>
+<section id="destaques"><div class="wrap">
+  <div class="cab"><p class="eyebrow" id="d-titulo"></p></div>
+  <div class="car">
+    <button class="arrow p" id="prev" type="button" aria-label="Anterior">‹</button>
+    <div class="track" id="track"></div>
+    <button class="arrow n" id="next" type="button" aria-label="Próximo">›</button>
+  </div>
 </div></section>
 
-<section id="loja"><div class="wrap two">
-<div><p class="eyebrow">Atendimento online</p>
-<h2>Agora, a loja é online.</h2>
-<p class="lead">Enquanto renovamos nosso conceito e nosso mix de produtos, você continua contando com a gente: escolha suas peças aqui, tire dúvidas, confirme tamanhos e combine a entrega direto pelo WhatsApp.</p>
-<ul class="list">
-<li>📲 <a data-wa="Olá! Vim pelo site e gostaria de saber mais sobre as últimas peças disponíveis.">WhatsApp</a></li>
-<li>📸 <a data-ig>Instagram</a></li>
-<li>🕐 <span id="hours">Atendimento de segunda a sábado, 9h às 19h</span></li></ul>
-<a class="btn" data-wa="Olá! Vim pelo site e gostaria de saber mais sobre as últimas peças disponíveis.">Falar no WhatsApp</a></div>
-<div class="map">Sua loja, onde você estiver.</div>
+<section id="pecas" style="padding-top:40px"><div class="wrap">
+  <p class="eyebrow" id="p-eyebrow"></p>
+  <h2 id="p-titulo"></h2>
+  <p class="lead" id="p-texto"></p>
+  <div class="chips" id="chips"></div>
+  <div class="grid" id="grid"></div>
 </div></section>
 
-<section id="nova-fase" class="next"><div class="wrap">
-<p class="eyebrow">Uma nova história está sendo construída</p>
-<h2>E O QUE VEM DEPOIS?</h2>
-<p class="lead">Estamos preparando uma nova proposta de moda: mais essencial, mais versátil e ainda mais conectada com o estilo de vida atual.</p>
-<div class="brands">
-<div class="brand"><h3>CONSTita</h3><div class="tag">MODA BÁSICA • ESSENCIAL • ATEMPORAL</div><p>Peças que combinam entre si, atravessam tendências e fazem parte da vida real.</p><ul><li>Básicos</li><li>Qualidade</li><li>Conforto</li><li>Versatilidade</li><li>Atemporal</li></ul></div>
-<div class="brand"><h3>CONSTita FIT</h3><div class="tag">MOVIMENTO • CONFORTO • PERFORMANCE</div><p>Uma nova linha pensada para acompanhar o corpo em movimento, do treino à rotina.</p><ul><li>Fitness</li><li>Funcionalidade</li><li>Qualidade</li><li>Minimalista</li><li>Academia e lifestyle</li></ul></div>
-</div>
-<p class="soon">Menos excesso. Mais essência. — CONSTita + CONSTita FIT, em breve.</p>
+<section class="next"><div class="wrap">
+  <p class="eyebrow" id="n-eyebrow"></p>
+  <h2 id="n-titulo"></h2>
+  <p class="lead" id="n-texto"></p>
+  <div class="brands" id="marcas"></div>
+  <p class="soon" id="n-frase"></p>
 </div></section>
 
-<section><div class="wrap">
-<p class="eyebrow">Do básico ao movimento</p>
-<h2>Do agora para o novo</h2>
-<div class="tl">
-<div class="st now"><small>01</small><h3>Agora</h3><p>Últimas peças da coleção atual.</p></div>
-<div class="st"><small>02</small><h3>Transição</h3><p>Redução do estoque e fortalecimento do canal online.</p></div>
-<div class="st"><small>03</small><h3>Próximo capítulo</h3><p>CONSTita + CONSTita FIT.</p></div>
-<div class="st"><small>04</small><h3>Um novo jeito de vestir</h3><p>Uma mudança planejada, que representa a evolução da nossa marca.</p></div>
-</div></div></section>
-
-<section class="strip"><div class="wrap">
-<p class="eyebrow">Lista de novidades</p>
-<h2>Quer saber primeiro quando a nova coleção chegar?</h2>
-<p class="lead">Cadastre-se para receber novidades, lançamentos e condições especiais da nova fase.</p>
-<form id="lead"><input name="nome" placeholder="Nome" required autocomplete="name"><input name="whats" placeholder="WhatsApp" type="tel" required autocomplete="tel"><input name="email" placeholder="E-mail" type="email" autocomplete="email"><button class="btn" type="submit">Quero fazer parte</button></form>
-<p class="ok" id="ok">Obrigada! Seu cadastro segue pelo WhatsApp — é só enviar a mensagem.</p>
-<p style="margin-top:22px">Siga a gente no Instagram para acompanhar essa transformação. <a data-ig style="font-weight:600">@sualoja</a></p>
+<section class="center"><div class="wrap">
+  <p class="eyebrow" id="nv-eyebrow"></p>
+  <h2 id="nv-titulo"></h2>
+  <p class="lead" id="nv-texto"></p>
+  <a class="btn" id="nv-botao" data-promo target="_blank" rel="noopener"></a>
 </div></section>
 </main>
 
-<footer><div class="wrap"><a class="logo" href="#topo">SUA LOJA</a><em>A loja não está acabando. Ela está mudando.</em>Uma fase termina. Uma nova começa.</div></footer>
+<footer><div class="wrap">
+  <a class="logo" href="#topo"><img src="img/k.jpg" alt="" width="26" height="26"><span id="f-logo"></span></a><br>
+  <span id="f-frase"></span><br><span id="f-frase2"></span><br><span id="f-horario"></span>
+</div></footer>
 
-<a class="wa" data-wa="Olá! Vim pelo site e gostaria de saber mais sobre as últimas peças disponíveis." aria-label="Falar no WhatsApp">💬 WhatsApp</a>
+<a class="wa" id="wa" target="_blank" rel="noopener">WhatsApp</a>
+
+<div class="ov" id="ov"></div>
+<aside class="drawer" id="drawer" aria-label="Carrinho">
+  <div class="dh"><h3>Seu carrinho</h3><button class="x" id="close" type="button" aria-label="Fechar">×</button></div>
+  <div class="items" id="items"></div>
+  <div class="tot"><span>Total</span><b id="total">R$ 0,00</b></div>
+  <a class="btn" id="checkout" target="_blank" rel="noopener">Finalizar pelo WhatsApp</a>
+</aside>
 
 <script>
-/* ===== EDITE AQUI ===== */
-var WHATSAPP="5547999999999", INSTAGRAM="https://instagram.com/sualoja";
-var CATS=["Todos","Feminino","Masculino","Básicos","Alfaiataria","Vestidos","Calças","Blusas","Jaquetas","Fitness"];
-var P=[
-{n:"Vestido midi em linho",t:["Feminino","Vestidos"],o:289.9,p:159.9,s:"M",b:"ÚLTIMA PEÇA",c:"#c8b49a"},
-{n:"Calça pantalona alfaiataria",t:["Feminino","Alfaiataria","Calças"],o:259.9,p:149.9,s:"38",b:"ÚLTIMA PEÇA",c:"#9a8067"},
-{n:"Blusa manga longa básica",t:["Feminino","Básicos","Blusas"],o:129.9,p:79.9,s:"P e M",b:"ÚLTIMAS UNIDADES",c:"#d9cdb9"},
-{n:"Jaqueta off-white",t:["Feminino","Jaquetas"],o:349.9,p:199.9,s:"G",b:"ÚLTIMA PEÇA",c:"#b3a58f"},
-{n:"Camiseta algodão básica",t:["Masculino","Básicos"],o:89.9,p:59.9,s:"M e G",b:"ÚLTIMAS UNIDADES",c:"#7d6a58"},
-{n:"Blazer alfaiataria",t:["Feminino","Alfaiataria","Jaquetas"],o:399.9,p:229.9,s:"40",b:"ÚLTIMA PEÇA",c:"#4f4238"},
-{n:"Legging fitness",t:["Feminino","Fitness"],o:119.9,p:79.9,s:"M",b:"ÚLTIMAS UNIDADES",c:"#5a6b5c"},
-{n:"Calça jogger",t:["Masculino","Calças"],o:189.9,p:119.9,s:"42",b:"ÚLTIMA PEÇA",c:"#a8977f"}];
-/* ====================== */
-var $=function(s){return document.querySelector(s)},brl=function(v){return "R$ "+v.toFixed(2).replace(".",",")};
-function wa(m){return "https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(m)}
-function bind(){document.querySelectorAll("[data-wa]").forEach(function(a){a.href=wa(a.dataset.wa);a.target="_blank";a.rel="noopener"});
-document.querySelectorAll("[data-ig]").forEach(function(a){a.href=INSTAGRAM;a.target="_blank";a.rel="noopener"});}
-function render(cat){
-$("#chips").innerHTML=CATS.map(function(c){return '<button class="chip'+(c===cat?' on':'')+'" data-c="'+c+'">'+c+'</button>'}).join("");
-var l=P.filter(function(x){return cat==="Todos"||x.t.indexOf(cat)>-1});
-$("#grid").innerHTML=l.length?l.map(function(x){
-return '<article class="card"><div class="ph" style="background:linear-gradient(160deg,'+x.c+',#3b3229)"><span class="badge">'+x.b+'</span>foto</div><div class="info"><h3>'+x.n+'</h3><div class="pr"><s>'+brl(x.o)+'</s><b>'+brl(x.p)+'</b></div><div class="sz">Tamanho: '+x.s+'</div><div class="acts"><a class="btn sm" target="_blank" rel="noopener" href="'+wa('Olá! Quero comprar: '+x.n+' (tam. '+x.s+') — '+brl(x.p))+'">Comprar</a><a class="btn sm ghost" target="_blank" rel="noopener" href="'+wa('Olá! Vim pelo site e gostaria de saber mais sobre: '+x.n+' (tam. '+x.s+').')+'">Consultar pelo WhatsApp</a></div></div></article>'}).join(""):'<p class="empty">Nenhuma peça nessa categoria no momento.</p>'}
-$("#chips").addEventListener("click",function(e){var c=e.target.dataset.c;if(c)render(c)});
-$("#lead").addEventListener("submit",function(e){e.preventDefault();var f=e.target;
-var m="Olá! Quero fazer parte da lista da nova fase. Nome: "+f.nome.value+" | WhatsApp: "+f.whats.value+(f.email.value?" | E-mail: "+f.email.value:"");
-$("#ok").style.display="block";window.open(wa(m),"_blank");f.reset()});
-bind();render("Todos");
+/* Conteúdo: data/site.json (textos, WhatsApp, marcas) e data/produtos.json (peças).
+   Aqui só existe a lógica da página — não é preciso editar este arquivo para atualizar o site. */
+const $=s=>document.querySelector(s);
+const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+const set=(s,v)=>{const n=$(s);if(n)n.textContent=v==null?'':v};
+const brl=v=>'R$ '+Number(v).toFixed(2).replace('.',',');
+const COR='#c8b49a';
+let S,P=[],SEL=[],cat='Todos',cart=[],TAM={},need=0;
+const zap=m=>'https://wa.me/'+S.whatsapp+(m?'?text='+encodeURIComponent(m):'');
+
+async function json(url){
+  const r=await fetch(url,{cache:'no-store'});
+  if(!r.ok)throw new Error(url+' → HTTP '+r.status);
+  try{return await r.json()}catch(e){throw new Error(url+' tem erro de sintaxe JSON: '+e.message)}
+}
+function erro(m){const e=$('#erro');e.textContent=m;e.classList.add('on')}
+
+function badge(p){
+  if(p.selo)return p.selo;
+  return p.estoque<=0?'Esgotado':p.estoque===1?'Última peça':p.estoque<=2?'Últimas unidades':'';
+}
+function foto(box,p){
+  if(!p.foto)return;
+  const i=new Image();i.alt=p.nome;i.loading='lazy';i.onerror=()=>i.remove();i.src=p.foto;box.append(i);
+}
+
+function card(p){
+  const a=el('article'),ph=el('div','ph');ph.style.background=p.cor||COR;foto(ph,p);
+  if(badge(p))ph.append(el('span','badge',badge(p)));
+  const info=el('div','info'),pr=el('div','pr');
+  info.append(el('h3',0,p.nome));
+  if(p.precoAntigo)pr.append(el('s',0,brl(p.precoAntigo)));
+  pr.append(brl(p.preco));info.append(pr);
+  const out=!(p.estoque>0),inC=cart.some(x=>x.id===p.id);
+  if(!out&&p.tams.length){
+    const box=el('div','szs'+(need===p.id?' need':''));
+    p.tams.forEach(t=>{const b=el('button','tb'+(TAM[p.id]===t?' on':''),t);b.type='button';b.dataset.tam=t;b.dataset.id=p.id;box.append(b)});
+    info.append(box);
+  }
+  const b=el('button','btn add'+(inC?' in':''),out?'Indisponível':inC?'No carrinho ✓':need===p.id?'Escolha o tamanho':'Adicionar ao carrinho');
+  b.type='button';b.dataset.add=p.id;b.disabled=out;info.append(b);
+  a.append(ph,info);return a;
+}
+
+function renderChips(){
+  const cs=['Todos',...new Set(P.flatMap(p=>p.cats))];
+  $('#chips').replaceChildren(...cs.map(c=>{const b=el('button','chip'+(c===cat?' on':''),c);b.type='button';b.dataset.c=c;return b}));
+}
+function renderGrid(){
+  const l=P.filter(p=>cat==='Todos'||p.cats.includes(cat));
+  $('#grid').replaceChildren(...(l.length?l.map(card):[el('p','empty','Nenhuma peça nessa categoria no momento.')]));
+}
+function renderTrack(){
+  const t=$('#track'),x=t.scrollLeft;
+  t.replaceChildren(...SEL.map(card));t.scrollLeft=x;
+}
+function renderCart(){
+  const tot=cart.reduce((a,x)=>a+x.preco,0);
+  set('#cnt',cart.length);set('#total',brl(tot));
+  $('#items').replaceChildren(...(cart.length?cart.map(x=>{
+    const it=el('div','it'),sw=el('div','sw');sw.style.background=x.cor;foto(sw,x);
+    const d=el('div','d');d.append(el('b',0,x.nome),el('small',0,(x.tam?'Tam. '+x.tam+' · ':'')+brl(x.preco)));
+    const r=el('button','rm','Remover');r.type='button';r.dataset.rm=x.id;
+    it.append(sw,d,r);return it;
+  }):[el('p','dempty','Seu carrinho está vazio.')]));
+  const msg='Olá! Gostaria de finalizar meu pedido:\n'+cart.map(x=>'• '+x.nome+(x.tam?' (tam. '+x.tam+')':'')+' — '+brl(x.preco)).join('\n')+'\nTotal: '+brl(tot);
+  $('#checkout').href=cart.length?zap(msg):'#';
+  $('#checkout').style.opacity=cart.length?1:.4;
+}
+function draw(){renderChips();renderGrid();renderTrack();renderCart()}
+function toggle(o){$('#drawer').classList.toggle('open',o);$('#ov').classList.toggle('open',o)}
+
+function add(id){
+  const p=P.find(x=>x.id===id);if(!p||!(p.estoque>0))return;
+  if(cart.some(x=>x.id===id)){cart=cart.filter(x=>x.id!==id);draw();return}
+  if(p.tams.length&&!TAM[id]){need=id;draw();return}
+  cart.push({id,nome:p.nome,preco:p.preco,tam:TAM[id]||'',cor:p.cor||COR,foto:p.foto});
+  need=0;draw();toggle(true);
+}
+
+function texto(){
+  document.title=S.nome+' — '+S.hero.nota;
+  set('#logo',S.nome);set('#f-logo',S.nome);
+  set('#h-eyebrow',S.hero.eyebrow);set('#h-chamada',S.hero.chamada);set('#h-destaque',S.hero.destaque);
+  set('#h-texto',S.hero.texto);set('#aviso',S.aviso);
+  set('#d-titulo',S.destaques.titulo);
+  set('#p-eyebrow',S.pecas.eyebrow);set('#p-titulo',S.pecas.titulo);set('#p-texto',S.pecas.texto);
+  set('#n-eyebrow',S.novaFase.eyebrow);set('#n-titulo',S.novaFase.titulo);set('#n-texto',S.novaFase.texto);set('#n-frase',S.novaFase.frase);
+  set('#nv-eyebrow',S.novidades.eyebrow);set('#nv-titulo',S.novidades.titulo);set('#nv-texto',S.novidades.texto);set('#nv-botao',S.novidades.botao);
+  set('#f-frase',S.rodape);set('#f-frase2',S.rodape2);set('#f-horario',S.horario);
+  $('#nv-botao').href=zap(S.msgNovidades);$('#wa').href=zap(S.msgPadrao);
+  $('#marcas').replaceChildren(...S.marcas.map(b=>{
+    const d=el('div','brand');d.append(el('h3',0,b.nome),el('div','tag',b.subtitulo),el('p',0,b.texto));return d;
+  }));
+}
+
+/* Carrossel: peças em estoque, em ordem aleatória a cada visita */
+function carrossel(){
+  const pool=P.filter(p=>p.estoque>0);
+  for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]]}
+  SEL=pool.slice(0,S.destaques.quantidade||8);
+  if(!SEL.length){$('#destaques').hidden=true;return}
+  const tr=$('#track');
+  const go=d=>{
+    const max=tr.scrollWidth-tr.clientWidth,w=tr.firstElementChild.offsetWidth+16;
+    if(d>0&&tr.scrollLeft>=max-4)tr.scrollTo({left:0,behavior:'smooth'});
+    else if(d<0&&tr.scrollLeft<=4)tr.scrollTo({left:max,behavior:'smooth'});
+    else tr.scrollBy({left:d*w,behavior:'smooth'});
+  };
+  $('#prev').onclick=()=>go(-1);$('#next').onclick=()=>go(1);
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const car=tr.parentElement;let pausa=false,t;
+  ['mouseenter','focusin'].forEach(e=>car.addEventListener(e,()=>pausa=true));
+  ['mouseleave','focusout'].forEach(e=>car.addEventListener(e,()=>pausa=false));
+  car.addEventListener('touchstart',()=>{pausa=true;clearTimeout(t);t=setTimeout(()=>pausa=false,8000)},{passive:true});
+  setInterval(()=>{if(!pausa&&!document.hidden)go(1)},3500);
+}
+
+document.addEventListener('click',e=>{
+  const c=e.target.closest('[data-c],[data-add],[data-tam],[data-rm]');if(!c)return;
+  if(c.dataset.c){cat=c.dataset.c;draw()}
+  else if(c.dataset.add)add(+c.dataset.add);
+  else if(c.dataset.tam){const id=+c.dataset.id;TAM[id]=c.dataset.tam;if(need===id)need=0;draw()}
+  else if(c.dataset.rm){cart=cart.filter(x=>x.id!==+c.dataset.rm);draw()}
+});
+$('#checkout').addEventListener('click',e=>{if(!cart.length)e.preventDefault()});
+$('#open').onclick=()=>toggle(true);$('#close').onclick=$('#ov').onclick=()=>toggle(false);
+addEventListener('scroll',()=>document.body.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+(async()=>{
+  try{
+    let lista;[S,lista]=await Promise.all([json('data/site.json'),json('data/produtos.json')]);
+    P=lista.filter(p=>p.ativo!==false).map((p,i)=>({...p,id:i+1,cats:[].concat(p.categoria||[]),tams:p.tamanhos||[]}));
+    P.forEach(p=>{if(p.tams.length===1)TAM[p.id]=p.tams[0]});
+    texto();carrossel();draw();
+  }catch(e){
+    console.error(e);
+    erro(location.protocol==='file:'
+      ?'Abra o site por um servidor (não clicando no arquivo). Na pasta do projeto rode: python3 -m http.server 8080  ou  busybox httpd -f -p 8080  e acesse http://localhost:8080'
+      :'Erro ao carregar o conteúdo: '+e.message);
+  }
+})();
 </script>
 </body>
 </html>

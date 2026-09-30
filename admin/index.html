@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin — CONSTITA</title>
+<style>
+:root{--bg:#faf8f4;--ink:#1c1814;--mute:#7a7066;--line:#e6dfd4;--card:#f3eee6;--dk:#1c1814;--dkt:#faf8f4;--ok:#2f6b46;--err:#a33a3a;--sans:system-ui,-apple-system,'Segoe UI',sans-serif;--serif:Georgia,'Times New Roman',serif}
+@media(prefers-color-scheme:dark){:root{--bg:#161311;--ink:#f1ebe1;--mute:#a1968a;--line:#332d27;--card:#1e1a17;--dk:#f1ebe1;--dkt:#161311;--ok:#7fc79b;--err:#e08a8a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 var(--sans);padding-bottom:110px}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+h1,h2{font-family:var(--serif);font-weight:400;margin:0}
+h1{font-size:30px;padding:28px 0 6px}h2{font-size:22px;margin:0 0 6px}
+.sub{color:var(--mute);margin:0 0 20px;font-size:14px}
+section,details{border-top:1px solid var(--line);padding:26px 0}
+summary{cursor:pointer;font:400 22px var(--serif)}
+label{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin:12px 0 4px}
+input[type=text],input[type=password],input[type=number]{width:100%;padding:10px 12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;border-radius:0}
+.row{display:grid;gap:12px}
+@media(min-width:700px){.row.c2{grid-template-columns:1fr 1fr}.row.c4{grid-template-columns:2fr 1fr 1fr 1fr}}
+.btn{padding:11px 20px;border:1px solid var(--dk);background:var(--dk);color:var(--dkt);font:600 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink)}.btn.sm{padding:6px 12px;font-size:11px}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+.hint{font-size:13px;color:var(--mute)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px;margin-top:14px}
+.tile{border:2px dashed var(--line);background:var(--card);padding:18px 12px;text-align:center;cursor:pointer;min-height:112px;display:flex;flex-direction:column;justify-content:center;gap:4px;transition:border-color .15s,background .15s}
+.tile b{font:400 20px var(--serif)}.tile small{color:var(--mute);font-size:12px}
+.tile.over{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,var(--card))}
+.tile input{margin-top:6px;text-align:center}
+.drafts,.list{display:grid;gap:14px;margin-top:18px}
+.draft{display:grid;gap:12px;grid-template-columns:96px 1fr;border:1px solid var(--line);padding:12px;background:var(--card)}
+.draft img,.th{width:96px;height:128px;object-fit:cover;background:var(--line)}
+.path{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--ok);word-break:break-all;margin-top:6px}
+.item{display:grid;grid-template-columns:48px 1fr;gap:10px 12px;align-items:center;border:1px solid var(--line);padding:10px}
+.item .th{width:48px;height:64px}
+.item .f{display:grid;gap:8px;grid-template-columns:1fr 90px 70px;min-width:0}
+.item .m{grid-column:1/-1;display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--mute)}
+@media(min-width:700px){.item{grid-template-columns:48px 1fr auto}.item .m{grid-column:auto}}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px));z-index:5}
+.bar .wrap{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:0}
+#status{font-size:13px;color:var(--mute);min-height:1.4em}
+#status.ok{color:var(--ok)}#status.err{color:var(--err)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Admin — CONSTITA</h1>
+<p class="sub">Arraste as fotos para a categoria. Elas são salvas em <code>img/&lt;categoria&gt;/</code> e enviadas ao GitHub em um único commit.</p>
+
+<details id="cfg">
+  <summary>1. Conexão com o GitHub</summary>
+  <div class="row c2">
+    <div><label for="repo">Repositório (usuario/nome)</label><input type="text" id="repo" placeholder="kevin/constita-site" autocomplete="off"></div>
+    <div><label for="branch">Branch</label><input type="text" id="branch" value="main" autocomplete="off"></div>
+    <div><label for="base">Pasta do site no repositório (vazio = raiz)</label><input type="text" id="base" placeholder="constita-site" autocomplete="off"></div>
+    <div><label for="token">Token de acesso (fine-grained)</label><input type="password" id="token" autocomplete="off"></div>
+  </div>
+  <p class="hint">Crie em GitHub → Settings → Developer settings → Fine-grained tokens, só neste repositório, com <b>Contents: Read and write</b>. Fica salvo apenas neste navegador.</p>
+  <label style="text-transform:none;letter-spacing:0;font-size:14px"><input type="checkbox" id="lembrar" checked> Lembrar neste navegador</label>
+  <p><button class="btn" id="conectar" type="button">Conectar e carregar peças</button></p>
+</details>
+
+<section>
+  <h2>2. Adicionar peças</h2>
+  <p class="sub">Solte uma ou várias fotos sobre a categoria (ou clique nela para escolher os arquivos).</p>
+  <div class="tiles" id="tiles"></div>
+  <div class="drafts" id="drafts"></div>
+</section>
+
+<section>
+  <h2>3. Peças publicadas</h2>
+  <p class="sub">Edite nome, preço, estoque ou desative peças. Estoque 0 mostra “Esgotado”.</p>
+  <div class="list" id="list"><p class="hint">Conecte ao GitHub para carregar.</p></div>
+</section>
+</div>
+
+<div class="bar"><div class="wrap">
+  <div id="status" role="status"></div>
+  <button class="btn" id="publicar" type="button" disabled>Publicar</button>
+</div></div>
+
+<script>
+const $=s=>document.querySelector(s);
+const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+const slug=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+const num=v=>parseFloat(String(v).replace(',','.'));
+let C={},items=[],orig='[]',drafts=[],seq=0,conectado=false;
+
+/* ---------- configuração ---------- */
+function loadCfg(){
+  try{C=JSON.parse(localStorage.getItem('cst.cfg')||sessionStorage.getItem('cst.cfg')||'{}')}catch{C={}}
+  $('#repo').value=C.repo||'';$('#branch').value=C.branch||'main';$('#base').value=C.base||'';$('#token').value=C.token||'';
+  $('#lembrar').checked=!sessionStorage.getItem('cst.cfg');
+  $('#cfg').open=!(C.token&&C.repo);
+}
+function saveCfg(){
+  C={repo:$('#repo').value.trim().replace(/^https?:\/\/github\.com\//,'').replace(/\.git$/,''),branch:$('#branch').value.trim()||'main',base:$('#base').value.trim().replace(/^\/+|\/+$/g,''),token:$('#token').value.trim()};
+  localStorage.removeItem('cst.cfg');sessionStorage.removeItem('cst.cfg');
+  ($('#lembrar').checked?localStorage:sessionStorage).setItem('cst.cfg',JSON.stringify(C));
+}
+const B=()=>C.base?C.base+'/':'';
+
+/* ---------- GitHub ---------- */
+async function gh(path,opt={}){
+  const r=await fetch('https://api.github.com/repos/'+C.repo+path,{
+    method:opt.method||'GET',
+    headers:{Authorization:'Bearer '+C.token,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','Content-Type':'application/json'},
+    body:opt.body?JSON.stringify(opt.body):undefined
+  });
+  if(!r.ok){let m='';try{m=(await r.json()).message}catch{}const e=new Error('GitHub '+r.status+(m?': '+m:''));e.status=r.status;throw e}
+  return r.status===204?null:r.json();
+}
+async function carregar(){
+  status('Carregando peças do GitHub…');
+  try{
+    const f=await gh('/contents/'+B()+'data/produtos.json?ref='+encodeURIComponent(C.branch));
+    const bin=atob(f.content.replace(/\s/g,''));
+    items=JSON.parse(new TextDecoder().decode(Uint8Array.from(bin,c=>c.charCodeAt(0))));
+  }catch(e){
+    if(e.status===404)items=[];else throw e;
+  }
+  orig=JSON.stringify(items);conectado=true;
+  status(items.length+' peça(s) carregada(s).','ok');
+  render();
+}
+
+/* ---------- imagens ---------- */
+async function preparar(file){
+  const bmp=await createImageBitmap(file,{imageOrientation:'from-image'});
+  const k=Math.min(1,1400/Math.max(bmp.width,bmp.height));
+  const cv=document.createElement('canvas');cv.width=Math.round(bmp.width*k);cv.height=Math.round(bmp.height*k);
+  const g=cv.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,cv.width,cv.height);g.drawImage(bmp,0,0,cv.width,cv.height);
+  const blob=await new Promise(r=>cv.toBlob(r,'image/jpeg',0.86));
+  const b64=await new Promise(r=>{const fr=new FileReader();fr.onload=()=>r(fr.result.split(',')[1]);fr.readAsDataURL(blob)});
+  return {url:URL.createObjectURL(blob),b64};
+}
+const limpar=n=>{const s=n.replace(/\.[^.]+$/,'').replace(/[-_]+/g,' ').trim();return s.charAt(0).toUpperCase()+s.slice(1)};
+
+async function adicionar(files,cat){
+  cat=(cat||'').trim();
+  if(!cat){status('Digite o nome da nova categoria antes de soltar as fotos.','err');return}
+  for(const f of files){
+    if(!f.type.startsWith('image/'))continue;
+    try{const img=await preparar(f);drafts.push({id:++seq,nome:limpar(f.name),preco:'',tam:'',estoque:1,cat,...img})}
+    catch(e){status('Não consegui ler "'+f.name+'".','err')}
+  }
+  render();
+}
+
+/* Caminho final de cada foto: img/<categoria>/<nome>.jpg (sem repetir nomes) */
+function caminhos(){
+  const usados=new Set(items.map(i=>i.foto)),m={};
+  drafts.forEach(d=>{
+    const base='img/'+(slug(d.cat)||'sem-categoria')+'/'+(slug(d.nome)||'peca');
+    let p=base+'.jpg',n=2;while(usados.has(p))p=base+'-'+(n++)+'.jpg';
+    usados.add(p);m[d.id]=p;
+  });
+  return m;
+}
+const primeiraCat=i=>[].concat(i.categoria||[])[0]||'';
+const categorias=()=>[...new Set([...items.map(primeiraCat),...drafts.map(d=>d.cat)].filter(Boolean))];
+
+/* ---------- interface ---------- */
+function zona(no,getCat){
+  const pick=document.createElement('input');pick.type='file';pick.accept='image/*';pick.multiple=true;
+  pick.onchange=()=>{adicionar([...pick.files],getCat());pick.value=''};
+  no.addEventListener('click',e=>{if(e.target.tagName!=='INPUT')pick.click()});
+  ['dragenter','dragover'].forEach(t=>no.addEventListener(t,e=>{e.preventDefault();no.classList.add('over')}));
+  ['dragleave','drop'].forEach(t=>no.addEventListener(t,e=>{e.preventDefault();no.classList.remove('over')}));
+  no.addEventListener('drop',e=>adicionar([...e.dataTransfer.files],getCat()));
+}
+function renderTiles(){
+  const t=$('#tiles');t.replaceChildren();
+  categorias().forEach(c=>{
+    const n=items.filter(i=>primeiraCat(i)===c).length+drafts.filter(d=>d.cat===c).length;
+    const d=el('div','tile');d.append(el('b',0,c),el('small',0,'img/'+(slug(c)||'sem-categoria')+'/'),el('small',0,n+' peça(s)'));
+    zona(d,()=>c);t.append(d);
+  });
+  const nv=el('div','tile'),inp=el('input');inp.type='text';inp.placeholder='Nova categoria';
+  nv.append(el('b',0,'+ Nova categoria'),inp,el('small',0,'digite o nome e solte a foto aqui'));
+  zona(nv,()=>inp.value);t.append(nv);
+}
+function renderDrafts(){
+  const box=$('#drafts'),cam=caminhos();box.replaceChildren();
+  drafts.forEach(d=>{
+    const c=el('div','draft'),img=el('img');img.src=d.url;img.alt='';
+    const f=el('div'),r=el('div','row c4');
+    const campo=(rot,val,k,ph,type)=>{
+      const w=el('div');w.append(el('label',0,rot));
+      const i=el('input');i.type=type||'text';i.value=val;if(ph)i.placeholder=ph;
+      i.oninput=()=>{d[k]=i.value;if(k==='nome'||k==='cat'){p.textContent=caminhos()[d.id];if(k==='cat')renderTiles()}};
+      w.append(i);return w;
+    };
+    r.append(campo('Nome',d.nome,'nome'),campo('Preço (R$)',d.preco,'preco','89,90'),campo('Tamanhos',d.tam,'tam','P, M, G'),campo('Estoque',d.estoque,'estoque','','number'));
+    const rc=el('div','row c2'),cw=campo('Categoria',d.cat,'cat');cw.querySelector('input').setAttribute('list','cats');rc.append(cw);
+    const p=el('div','path',cam[d.id]);
+    const x=el('button','btn ghost sm','Remover');x.type='button';x.onclick=()=>{drafts=drafts.filter(z=>z!==d);render()};
+    f.append(r,rc,p,x);x.style.marginTop='8px';c.append(img,f);box.append(c);
+  });
+  let dl=$('#cats');if(!dl){dl=el('datalist');dl.id='cats';document.body.append(dl)}
+  dl.replaceChildren(...categorias().map(c=>{const o=el('option');o.value=c;return o}));
+}
+function renderList(){
+  const l=$('#list');l.replaceChildren();
+  if(!conectado){l.append(el('p','hint','Conecte ao GitHub para carregar.'));return}
+  if(!items.length){l.append(el('p','hint','Nenhuma peça publicada ainda.'));return}
+  items.forEach(it=>{
+    const row=el('div','item'),th=el('img','th');th.alt='';th.src=(it.foto?'../'+it.foto:'');th.onerror=()=>th.removeAttribute('src');
+    const nome=el('input');nome.type='text';nome.value=it.nome;nome.oninput=()=>{it.nome=nome.value;atualizaBotao()};
+    const preco=el('input');preco.type='text';preco.value=String(it.preco).replace('.',',');preco.oninput=()=>{const v=num(preco.value);if(!isNaN(v))it.preco=v;atualizaBotao()};
+    const est=el('input');est.type='number';est.min=0;est.value=it.estoque;est.oninput=()=>{it.estoque=Math.max(0,parseInt(est.value)||0);atualizaBotao()};
+    const f=el('div','f');f.append(nome,preco,est);
+    const m=el('div','m');m.append(el('span',0,primeiraCat(it)||'sem categoria'));
+    const lb=el('label');lb.style.cssText='margin:0;text-transform:none;letter-spacing:0;font-size:13px';
+    const ck=el('input');ck.type='checkbox';ck.checked=it.ativo!==false;ck.onchange=()=>{if(ck.checked)delete it.ativo;else it.ativo=false;atualizaBotao()};
+    lb.append(ck,' visível no site');
+    const x=el('button','btn ghost sm','Remover');x.type='button';
+    x.onclick=()=>{if(confirm('Remover "'+it.nome+'" do site?')){items=items.filter(z=>z!==it);render()}};
+    m.append(lb,x);
+    row.append(th,f,m);
+    l.append(row);
+  });
+}
+function mudou(){return drafts.length>0||JSON.stringify(items)!==orig}
+function atualizaBotao(){
+  const n=drafts.length,ed=JSON.stringify(items)!==orig;
+  $('#publicar').disabled=!(conectado&&mudou());
+  $('#publicar').textContent=n?'Publicar ('+n+' nova'+(n>1?'s':'')+(ed?' + edições':'')+')':'Publicar alterações';
+}
+function render(){renderTiles();renderDrafts();renderList();atualizaBotao()}
+function status(m,cls){const s=$('#status');s.textContent=m;s.className=cls||''}
+
+/* ---------- publicar: um único commit com fotos + produtos.json ---------- */
+async function publicar(){
+  const cam=caminhos(),novos=[];
+  for(const d of drafts){
+    const preco=num(d.preco);
+    if(!d.nome.trim()||isNaN(preco)||!d.cat.trim()){status('Preencha nome, preço e categoria de todas as peças novas.','err');return}
+    novos.push({nome:d.nome.trim(),preco,categoria:d.cat.trim(),tamanhos:d.tam.split(/[,;\s]+/).filter(Boolean),estoque:Math.max(0,parseInt(d.estoque)||0),foto:cam[d.id]});
+  }
+  $('#publicar').disabled=true;
+  try{
+    status('Lendo o repositório…');
+    const head=(await gh('/git/ref/heads/'+C.branch)).object.sha;
+    const base=(await gh('/git/commits/'+head)).tree.sha;
+    const tree=[];
+    for(let i=0;i<drafts.length;i++){
+      status('Enviando foto '+(i+1)+' de '+drafts.length+'…');
+      const b=await gh('/git/blobs',{method:'POST',body:{content:drafts[i].b64,encoding:'base64'}});
+      tree.push({path:B()+cam[drafts[i].id],mode:'100644',type:'blob',sha:b.sha});
+    }
+    // fotos de peças removidas (se existirem no repositório e ninguém mais as usa)
+    const antes=JSON.parse(orig),ainda=new Set([...items.map(i=>i.foto),...novos.map(n=>n.foto)]);
+    for(const a of antes){
+      if(a.foto&&!ainda.has(a.foto)&&!items.includes(a)&&!items.some(i=>i.foto===a.foto)){
+        try{await gh('/contents/'+B()+a.foto+'?ref='+encodeURIComponent(C.branch));tree.push({path:B()+a.foto,mode:'100644',type:'blob',sha:null})}catch{}
+      }
+    }
+    const final=items.concat(novos);
+    status('Atualizando produtos.json…');
+    const j=await gh('/git/blobs',{method:'POST',body:{content:JSON.stringify(final,null,2)+'\n',encoding:'utf-8'}});
+    tree.push({path:B()+'data/produtos.json',mode:'100644',type:'blob',sha:j.sha});
+    status('Criando commit…');
+    const t=await gh('/git/trees',{method:'POST',body:{base_tree:base,tree}});
+    const msg='Admin: '+(novos.length?novos.length+' peça(s) nova(s)':'atualização do catálogo');
+    const c=await gh('/git/commits',{method:'POST',body:{message:msg,tree:t.sha,parents:[head]}});
+    await gh('/git/refs/heads/'+C.branch,{method:'PATCH',body:{sha:c.sha}});
+    drafts=[];items=final;orig=JSON.stringify(items);render();
+    status('Publicado! A Vercel atualiza o site em cerca de 30 segundos.','ok');
+  }catch(e){status('Falhou: '+e.message,'err');atualizaBotao()}
+}
+
+$('#conectar').onclick=async()=>{saveCfg();if(!C.token||!C.repo){status('Informe o repositório e o token.','err');return}
+  try{await carregar();$('#cfg').open=false}catch(e){status('Não foi possível conectar: '+e.message,'err')}};
+$('#publicar').onclick=publicar;
+addEventListener('beforeunload',e=>{if(mudou()){e.preventDefault();e.returnValue=''}});
+addEventListener('dragover',e=>e.preventDefault());addEventListener('drop',e=>e.preventDefault()); // evita abrir a foto fora da zona
+loadCfg();render();
+if(C.token&&C.repo)carregar().catch(e=>status('Não foi possível conectar: '+e.message,'err'));
+</script>
+</body>
+</html>

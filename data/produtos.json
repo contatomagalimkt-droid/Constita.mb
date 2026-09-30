@@ -1,0 +1,72 @@
+[
+  {
+    "nome": "Blusa básica manga curta",
+    "preco": 59.9,
+    "categoria": "Blusas",
+    "tamanhos": [
+      "P",
+      "M",
+      "G"
+    ],
+    "estoque": 2,
+    "foto": "img/blusa-basica.jpg"
+  },
+  {
+    "nome": "Calça alfaiataria",
+    "preco": 129.9,
+    "categoria": "Calças",
+    "tamanhos": [
+      "38",
+      "40",
+      "42"
+    ],
+    "estoque": 1,
+    "foto": "img/calca-alfaiataria.jpg"
+  },
+  {
+    "nome": "Vestido midi",
+    "preco": 149.9,
+    "categoria": "Vestidos",
+    "tamanhos": [
+      "M",
+      "G"
+    ],
+    "estoque": 0,
+    "foto": "img/vestido-midi.jpg"
+  },
+  {
+    "nome": "Regata canelada",
+    "preco": 79.9,
+    "categoria": "Blusas",
+    "tamanhos": [
+      "P",
+      "M"
+    ],
+    "estoque": 3,
+    "foto": "img/regata-canelada.jpg"
+  },
+  {
+    "nome": "Shorts de linho",
+    "preco": 99.9,
+    "categoria": "Calças",
+    "tamanhos": [
+      "P",
+      "M",
+      "G"
+    ],
+    "estoque": 4,
+    "foto": "img/shorts-linho.jpg"
+  },
+  {
+    "nome": "Saia midi plissada",
+    "preco": 119.9,
+    "categoria": "Vestidos",
+    "tamanhos": [
+      "36",
+      "38",
+      "40"
+    ],
+    "estoque": 2,
+    "foto": "img/saia-plissada.jpg"
+  }
+]

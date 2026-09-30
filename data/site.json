@@ -1,0 +1,94 @@
+{
+  "nome": "CONSTITA",
+  "whatsapp": "5547999512616",
+  "instagram": "constita.mb",
+  "horario": "Atendimento de segunda a sábado, 9h às 19h",
+  "msgPadrao": "Olá! Vim pelo site da CONSTITA.",
+  "msgNovidades": "Olá tudo bem?, gostaria de receber as promoções da loja! 😀",
+  "aviso": "Agora 100% online, com atendimento pelo WhatsApp.",
+  "hero": {
+    "eyebrow": "O último capítulo da coleção atual",
+    "chamada": "Últimas peças.",
+    "destaque": "Nova fase.",
+    "texto": "Estamos encerrando uma coleção para abrir espaço para algo novo. Aproveite as últimas peças disponíveis enquanto preparamos o próximo capítulo da nossa história.",
+    "nota": "Últimas peças. Novos caminhos."
+  },
+  "destaques": {
+    "titulo": "Em destaque",
+    "quantidade": 8
+  },
+  "pecas": {
+    "eyebrow": "Quantidades limitadas",
+    "titulo": "Últimas peças disponíveis",
+    "texto": "Uma seleção especial das peças que ainda estão disponíveis. Quantidades limitadas e sem reposição."
+  },
+  "atendimento": {
+    "eyebrow": "Atendimento online",
+    "titulo": "Agora, a loja é online.",
+    "texto": "Enquanto renovamos nosso conceito e nosso mix de produtos, você continua contando com a gente: escolha suas peças aqui, tire dúvidas, confirme tamanhos e combine a entrega direto pelo WhatsApp.",
+    "nota": "Sua loja, onde você estiver."
+  },
+  "novaFase": {
+    "eyebrow": "Uma nova história está sendo construída",
+    "titulo": "E o que vem depois?",
+    "texto": "Estamos preparando uma nova proposta de moda: mais essencial, mais versátil e ainda mais conectada com o estilo de vida atual.",
+    "frase": "Menos excesso. Mais essência. — CONSTITA + CONSTITA FIT, em breve."
+  },
+  "marcas": [
+    {
+      "nome": "CONSTITA",
+      "subtitulo": "Moda básica • Essencial • Atemporal",
+      "texto": "Peças que combinam entre si, atravessam tendências e fazem parte da vida real.",
+      "tags": [
+        "Básicos",
+        "Qualidade",
+        "Conforto",
+        "Versatilidade",
+        "Atemporal"
+      ]
+    },
+    {
+      "nome": "CONSTITA FIT",
+      "subtitulo": "Movimento • Conforto • Performance",
+      "texto": "Uma nova linha pensada para acompanhar o corpo em movimento, do treino à rotina.",
+      "tags": [
+        "Fitness",
+        "Funcionalidade",
+        "Qualidade",
+        "Minimalista",
+        "Academia e lifestyle"
+      ]
+    }
+  ],
+  "etapasInfo": {
+    "eyebrow": "Do básico ao movimento",
+    "titulo": "Do agora para o novo"
+  },
+  "etapas": [
+    {
+      "titulo": "Agora",
+      "texto": "Últimas peças da coleção atual."
+    },
+    {
+      "titulo": "Transição",
+      "texto": "Redução do estoque e fortalecimento do canal online."
+    },
+    {
+      "titulo": "Próximo capítulo",
+      "texto": "CONSTITA + CONSTITA FIT."
+    },
+    {
+      "titulo": "Um novo jeito de vestir",
+      "texto": "Uma mudança planejada, que representa a evolução da nossa marca."
+    }
+  ],
+  "novidades": {
+    "eyebrow": "Lista de novidades",
+    "titulo": "Quer saber primeiro quando a nova coleção chegar?",
+    "texto": "Cadastre-se para receber novidades, lançamentos e condições especiais da nova fase.",
+    "botao": "Quero fazer parte",
+    "ok": "Obrigada! Seu cadastro segue pelo WhatsApp — é só enviar a mensagem."
+  },
+  "rodape": "A loja não está acabando. Ela está mudando.",
+  "rodape2": "Uma fase termina. Uma nova começa."
+}
