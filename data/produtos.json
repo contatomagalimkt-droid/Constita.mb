@@ -48,13 +48,13 @@
   {
     "nome": "Shorts de linho",
     "preco": 99.9,
-    "categoria": "Calças",
+    "categoria": "Shots",
     "tamanhos": [
       "P",
       "M",
       "G"
     ],
-    "estoque": 4,
+    "estoque": 12,
     "foto": "img/shorts-linho.jpg"
   },
   {
