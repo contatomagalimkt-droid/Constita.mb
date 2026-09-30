@@ -30,9 +30,9 @@
   },
   "novaFase": {
     "eyebrow": "Uma nova história está sendo construída",
-    "titulo": "E o que vem depois?",
-    "texto": "Estamos preparando uma nova proposta de moda: mais essencial, mais versátil e ainda mais conectada com o estilo de vida atual.",
-    "frase": "Menos excesso. Mais essência. — CONSTITA + CONSTITA FIT, em breve."
+    "titulo": "A evolução do essencial.",
+    "texto": "Uma nova proposta de moda: mais essencial, mais versátil e conectada com o estilo de vida atual",
+    "frase": "Menos excesso. Mais essência. — CONSTITA + CONSTITA + FIT, em breve."
   },
   "marcas": [
     {
@@ -48,7 +48,7 @@
       ]
     },
     {
-      "nome": "CONSTITA FIT",
+      "nome": "CONSTITA + FIT",
       "subtitulo": "Movimento • Conforto • Performance",
       "texto": "Uma nova linha pensada para acompanhar o corpo em movimento, do treino à rotina.",
       "tags": [
@@ -75,7 +75,7 @@
     },
     {
       "titulo": "Próximo capítulo",
-      "texto": "CONSTITA + CONSTITA FIT."
+      "texto": "CONSTITA + CONSTITA + FIT."
     },
     {
       "titulo": "Um novo jeito de vestir",
